@@ -28,9 +28,11 @@
                 <section>
                     <label><a href='/register'>Sign up</a></label>
                 </section>
-                <section>
-                    <label><p id='login-response'></p></label>
-                </section>
+                {% if msg %}
+                    <section>
+                        <label><p id='login-response'>{{ msg }}</p></label>
+                    </section>
+                {% endif %}
             </form>
         </section>
     </div>

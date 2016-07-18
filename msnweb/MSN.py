@@ -25,3 +25,16 @@ class MSN (object):
                 )
 
         return db.collections.insert_one(user.export())
+
+    def login(email, password):
+        existing_user = db.collections.find_one({
+            'email': email,
+            'structure': '#User'
+            })
+
+        if existing_user is None:
+            return False
+
+        if existing_user['password'] == password:
+            session['user_id'] = str(existing_user['_id'])
+            return True

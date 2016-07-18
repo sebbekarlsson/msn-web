@@ -24,7 +24,7 @@ class RegisterForm(Form):
 
 class LoginForm(Form):
     email = TextField('Email', [validators.Length(min=4, max=35)])
-    password = TextField('Password', [validators.Length(min=4, max=35)])
+    password = PasswordField('Password', [validators.Length(min=4, max=35)])
     remember_me = BooleanField('Remember me')
     remember_my_password = BooleanField('Remember my password')
     sign_me_in_automatically = BooleanField('Sign me in automatically')

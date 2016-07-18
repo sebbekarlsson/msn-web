@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect
 from msnweb.MSN import MSN
 from msnweb.forms import LoginForm
 
@@ -12,9 +12,16 @@ def show():
         msg = None
 
         if form.validate_on_submit():
-            user_name = form.user_name.data
+            email = form.email.data
             password = form.password.data
 
-        return render_template('login.html', form=form)
+            login_ok = MSN.login(email, password)
+
+            if login_ok:
+                return redirect('/')
+
+            msg = 'Something went wrong'
+
+        return render_template('login.html', form=form, msg=msg)
     else:
         return render_template('app.html')
