@@ -1,4 +1,4 @@
-from msnwebb.app import app
+from msnweb.app import app
 
 
 if __name__ == '__main__':

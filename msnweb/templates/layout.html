@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Windows Live Messenger</title>
+        <link
+        rel='stylesheet'
+        type='text/css'
+        href='{{ url_for("static", filename="css/style.css") }}'>
+
+        <link
+        href='https://fonts.googleapis.com/css?family=Open+Sans'
+        rel='stylesheet'
+        type='text/css'>
+    </head>
+    <body>
+        <div class='content'>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
