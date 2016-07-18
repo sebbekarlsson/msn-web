@@ -8,6 +8,7 @@ from wtforms import (
     FileField,
     IntegerField
 )
+from wtforms.fields.html5 import EmailField
 from flask.ext.wtf import Form
 
 
@@ -23,7 +24,7 @@ class RegisterForm(Form):
     submit = SubmitField('Register')
 
 class LoginForm(Form):
-    email = TextField('Email', [validators.Length(min=4, max=35)])
+    email = EmailField('Email', [validators.Length(min=4, max=35)])
     password = PasswordField('Password', [validators.Length(min=4, max=35)])
     remember_me = BooleanField('Remember me')
     remember_my_password = BooleanField('Remember my password')
