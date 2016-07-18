@@ -1,0 +1,21 @@
+{% macro render_field(field) %}
+    {% if field.type != 'SubmitField' and field.type != 'BooleanField' %}
+    {{ field.label }}
+    {% endif %}
+    {% if field.type == 'SubmitField' %}
+        {{ field(class_='lwpcms-btn lwpcms-btn-primary', **kwargs)|safe }}
+    {% elif field.type == 'IntegerField' %}
+        {{ field(type='number', **kwargs)|safe }}
+    {% elif field.type == 'BooleanField' %}
+        <label>{{ field(type='checkbox', **kwargs)|safe }}{{ field.label | striptags }}</label>
+    {% else %}
+        {{ field(**kwargs)|safe }}
+    {% endif %}
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
