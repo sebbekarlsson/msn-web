@@ -1,0 +1,322 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    display: block; }
+  to {
+    opacity: 1; } }
+/* The element to apply the animation to */
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 2s; }
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Source Sans Pro', sans-serif; }
+
+.content {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.view {
+  background-image: url("../image/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: flex-end;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh; }
+
+.login-view section {
+  width: 100%;
+  height: 100%; }
+
+.vista {
+  position: relative; }
+  .vista:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .8;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b8e1fc+0,a9d2f3+10,90bae4+25,90bcea+37,90bff0+50,6ba8e5+51,a2daf5+83,bdf3fd+100;Blue+Gloss+%231 */
+    background: #b8e1fc;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #b8e1fc 0%, #a9d2f3 10%, #90bae4 25%, #90bcea 37%, #90bff0 50%, #6ba8e5 51%, #a2daf5 83%, #bdf3fd 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #b8e1fc 0%, #a9d2f3 10%, #90bae4 25%, #90bcea 37%, #90bff0 50%, #6ba8e5 51%, #a2daf5 83%, #bdf3fd 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #b8e1fc 0%, #a9d2f3 10%, #90bae4 25%, #90bcea 37%, #90bff0 50%, #6ba8e5 51%, #a2daf5 83%, #bdf3fd 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8e1fc', endColorstr='#bdf3fd',GradientType=0 );
+    /* IE6-9 */ }
+
+#app-view, #chat-view {
+  position: relative; }
+  #app-view .first-section, #chat-view .first-section {
+    height: 100px;
+    background-image: url("../image/bluemetal.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative; }
+    #app-view .first-section .avatar-part, #chat-view .first-section .avatar-part {
+      z-index: 40;
+      width: 20%;
+      padding: 1em; }
+      #app-view .first-section .avatar-part .avatar, #chat-view .first-section .avatar-part .avatar {
+        width: 64px;
+        height: 64px; }
+    #app-view .first-section .info-part, #chat-view .first-section .info-part {
+      z-index: 40;
+      font-weight: 200; }
+      #app-view .first-section .info-part h3, #chat-view .first-section .info-part h3 {
+        font-size: 1em; }
+      #app-view .first-section .info-part p, #chat-view .first-section .info-part p {
+        font-size: 0.8em; }
+  #app-view .misc-menu, #chat-view .misc-menu {
+    height: 32px;
+    background-color: white;
+    width: 100%;
+    flex: 0; }
+    #app-view .misc-menu ul, #app-view .misc-menu li, #chat-view .misc-menu ul, #chat-view .misc-menu li {
+      display: inline-block;
+      margin-left: 4px;
+      margin-right: 4px; }
+    #app-view .misc-menu li, #chat-view .misc-menu li {
+      position: relative; }
+      #app-view .misc-menu li span, #chat-view .misc-menu li span {
+        font-size: 0.6em;
+        height: 16px;
+        line-height: 16px;
+        text-align: center;
+        margin: 0 auto;
+        position: relative; }
+        #app-view .misc-menu li span img, #chat-view .misc-menu li span img {
+          width: 16px;
+          height: 16px;
+          padding-top: 0.8em; }
+  #app-view .search-bar, #chat-view .search-bar {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    height: 3.2em;
+    align-items: center;
+    -moz-box-shadow: inset  0  8px 8px -8px #696868;
+    -webkit-box-shadow: inset  0  8px 8px -8px #696868;
+    box-shadow: inset  0  8px 8px -8px #696868;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: lightgray; }
+    #app-view .search-bar .part, #chat-view .search-bar .part {
+      padding-top: 0.5em;
+      padding-left: 0.5em;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%; }
+      #app-view .search-bar .part input[type='text'], #chat-view .search-bar .part input[type='text'] {
+        margin-bottom: 1em;
+        height: 24px;
+        width: 100%;
+        display: block;
+        background-color: white;
+        outline: none;
+        border-style: solid;
+        border-width: 1px;
+        border-color: lightgray;
+        border-radius: 2px;
+        padding: 2px;
+        -moz-box-shadow: inset  0  2px 2px -2px #696868,  inset  0 -2px 2px -2px #696868;
+        -webkit-box-shadow: inset  0  2px 2px -2px #696868,  inset  0 -2px 2px -2px #696868;
+        box-shadow: inset  0  2px 2px -2px #696868,  inset  0 -2px 2px -2px #696868; }
+      #app-view .search-bar .part ul, #app-view .search-bar .part li, #chat-view .search-bar .part ul, #chat-view .search-bar .part li {
+        display: inline-block;
+        margin-left: 4px;
+        margin-right: 4px; }
+      #app-view .search-bar .part li, #chat-view .search-bar .part li {
+        position: relative; }
+        #app-view .search-bar .part li span, #chat-view .search-bar .part li span {
+          font-size: 0.6em;
+          height: 16px;
+          line-height: 16px;
+          text-align: center;
+          margin: 0 auto;
+          position: relative; }
+          #app-view .search-bar .part li span img, #chat-view .search-bar .part li span img {
+            width: 16px;
+            height: 16px; }
+    #app-view .search-bar .search-part, #chat-view .search-bar .search-part {
+      width: 70%; }
+    #app-view .search-bar .buttons-part, #chat-view .search-bar .buttons-part {
+      width: 30%;
+      text-align: right; }
+
+#chat-view {
+  position: relative; }
+  #chat-view .first-section {
+    height: 86px !important;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a0d8ef+0,ddf1f9+65,feffff+100 */
+    background: #a0d8ef;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #a0d8ef 0%, #ddf1f9 65%, #feffff 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #a0d8ef 0%, #ddf1f9 65%, #feffff 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #a0d8ef 0%, #ddf1f9 65%, #feffff 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0d8ef', endColorstr='#feffff',GradientType=0 );
+    /* IE6-9 */
+    flex: 0; }
+  #chat-view .chat-text {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    flex: 1; }
+  #chat-view .chat-input-part {
+    height: 100px;
+    width: 100%;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: lightgray;
+    background-color: white; }
+
+.login-view .first-section {
+  height: 256px !important; }
+
+.centered-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+form {
+  width: 70% !important;
+  margin: auto; }
+  form section {
+    padding: 1em; }
+  form input[type='email'], form input[type='password'] {
+    margin-bottom: 1em;
+    height: 20px;
+    width: 100%;
+    display: block;
+    background-color: white;
+    outline: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 2px;
+    padding: 2px; }
+  form button {
+    background: none;
+    border: none;
+    padding: 0; }
+  form button span {
+    display: block;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #999;
+    padding: 0;
+    background: #F0F0F0;
+    background: -moz-linear-gradient(top, #F0F0F0 50%, #D4D4D4 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #F0F0F0), color-stop(50%, #D4D4D4));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F0F0F0', endColorstr='#D4D4D4',GradientType=0 ); }
+  form label {
+    text-align: left;
+    width: 100%;
+    font-size: 0.8em;
+    display: block; }
+  form button span span {
+    border: 1px solid #fff;
+    padding: 10px; }
+  form input[type="button"] {
+    cursor: pointer;
+    border: 1px solid #707070;
+    background-color: #F0F0F0;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: inset 0 1px 2px #fff, inset 0 -0.7em #DDD;
+    -o-box-shadow: inset 0 1px 2px #fff, inset 0 -0.7em #DDD;
+    -webkit-box-shadow: inset 0 1px 2px #fff, inset 0 -0.7em #DDD;
+    -moz-box-shadow: inset 0 1px 2px #fff, inset 0 -0.7em #DDD;
+    padding: 3px 6px; }
+  form input[type="button"]:hover {
+    cursor: pointer;
+    background-color: #EAF6FD;
+    border: 1px solid #3C7FB1;
+    box-shadow: inset 0 1px 2px #fff, inset 0 -0.7em #BEE6FD, 0 0 3px #A7D9F5;
+    -o-box-shadow: inset 0 1px 2px #fff, inset 0 -0.7em #BEE6FD, 0 0 3px #A7D9F5;
+    -webkit-box-shadow: inset 0 1px 2px #fff, inset 0 -0.7em #BEE6FD, 0 0 3px #A7D9F5;
+    -moz-box-shadow: inset 0 1px 2px #fff, inset 0 -0.7em #BEE6FD, 0 0 3px #A7D9F5; }
+  form input[type="button"][disabled], form input[type="button"][disabled]:hover {
+    border: 1px solid #ADB2B5;
+    text-shadow: 1px 1px #fff;
+    cursor: default;
+    background-color: #F4F4F4;
+    box-shadow: inset 0 1px 2px #fff;
+    -o-box-shadow: inset 0 1px 2px #fff;
+    -webkit-box-shadow: inset 0 1px 2px #fff;
+    -moz-box-shadow: inset 0 1px 2px #fff; }
+
+.avatar {
+  width: 128px;
+  height: 128px; }
+
+.hidden {
+  opacity: 0;
+  display: none; }
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline; }
+
+.contact-list {
+  list-style: none;
+  display: block;
+  background-color: white; }
+  .contact-list .item {
+    display: block;
+    width: 100%;
+    height: 2em;
+    line-height: 2em;
+    width: 100%;
+    background-color: white;
+    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .contact-list .item:hover {
+      background-color: #D6F1FF;
+      cursor: pointer; }
+    .contact-list .item .contact-icon {
+      width: 24px;
+      height: 24px;
+      padding-left: 0.8em;
+      background-size: 70%;
+      background-repeat: no-repeat;
+      background-position: center; }
+    .contact-list .item span {
+      font-size: 0.8em;
+      padding: 1em; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+@media screen and (max-width: 600px) {
+  .content {
+    width: 100%; } }
+
+/*# sourceMappingURL=style.css.map */
