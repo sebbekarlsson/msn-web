@@ -1,6 +1,8 @@
 {% extends 'layout.html' %}
 
 
+{% set current_user = get_current_user() %}
+
 {% block content %}
     <div class='view' id='app-view'>
         <input type='hidden' name='user-id' id='user-id'>
@@ -12,8 +14,8 @@
                 alt> 
             </div>
             <div class='info-part'>
-                <h3 id='firstname'></h3>
-                <p>I like candy</p>
+                <h3 id='firstname'>{{ current_user.first_name }} {{ current_user.last_name }}</h3>
+                <p>{{ current_user.bio }}</p>
             </div>
         </section>
         <section class='misc-menu vista'>
@@ -38,12 +40,14 @@
             </div>
         </section>
         <section class='contact-list' id='contact-list'>
-            <div class='item'>
-                <img class='contact-icon' src="{{ url_for('static', filename='image/msn_icon.png') }}">
-                <span>
-                    Joa Doa
-                </span>
-            </div>
+            {% for user in users %}
+                <div class='item'>
+                    <img class='contact-icon' src="{{ url_for('static', filename='image/msn_icon.png') }}">
+                    <span>
+                        {{ user.first_name }} {{ user.last_name }}
+                    </span>
+                </div>
+            {% endfor %}
         </section>
     </div>
 {% endblock %}

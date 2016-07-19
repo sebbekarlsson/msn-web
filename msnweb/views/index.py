@@ -24,4 +24,5 @@ def show():
 
         return render_template('login.html', form=form, msg=msg)
     else:
-        return render_template('app.html')
+        users = MSN.get_all_users()
+        return render_template('app.html', users=users)

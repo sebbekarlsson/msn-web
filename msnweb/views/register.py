@@ -15,12 +15,14 @@ def show():
         first_name = form.first_name.data
         last_name = form.last_name.data
         password = form.password.data
+        bio = form.bio.data
         
         user_ok = MSN.register_user(
                 email=email,
                 first_name=first_name,
                 last_name=last_name,
-                password=password
+                password=password,
+                bio=bio
                 )
 
         if user_ok != False:

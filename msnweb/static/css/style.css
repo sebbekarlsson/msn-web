@@ -215,6 +215,12 @@ form {
     border-color: lightgray;
     border-radius: 2px;
     padding: 2px; }
+  form textarea {
+    width: 100%;
+    min-height: 150px;
+    border: none;
+    outline: none;
+    resize: none; }
   form button {
     background: none;
     border: none;

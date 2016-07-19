@@ -21,6 +21,7 @@ class RegisterForm(Form):
         validators.EqualTo('password_confirm', message='Passwords must match')
     ])
     password_confirm = PasswordField('Repeat Password')
+    bio = TextAreaField('Bio')
     submit = SubmitField('Register')
 
 class LoginForm(Form):

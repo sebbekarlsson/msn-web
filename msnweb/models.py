@@ -35,6 +35,7 @@ class User(DBObject):
             password='',
             role='user',
             avatar=None,
+            bio='',
             *args,
             **kwargs
             ):
@@ -45,3 +46,4 @@ class User(DBObject):
         self.password = password
         self.role = role
         self.avatar = avatar
+        self.bio = bio

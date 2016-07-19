@@ -271,6 +271,14 @@ form {
         padding: 2px;
     }
 
+    textarea {
+        width: 100%;
+        min-height: 150px;
+        border: none;
+        outline: none;
+        resize: none;
+    }
+
     button {
         background: none;
         border: none;
