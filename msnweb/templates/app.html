@@ -41,12 +41,12 @@
         </section>
         <section class='contact-list' id='contact-list'>
             {% for user in users %}
-                <div class='item'>
+                <a class='item' target="_blank" href='/conversation/new/{{ user._id }}'>
                     <img class='contact-icon' src="{{ url_for('static', filename='image/msn_icon.png') }}">
                     <span>
                         {{ user.first_name }} {{ user.last_name }}
                     </span>
-                </div>
+                </a>
             {% endfor %}
         </section>
     </div>

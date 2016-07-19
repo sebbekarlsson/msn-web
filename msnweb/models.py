@@ -47,3 +47,33 @@ class User(DBObject):
         self.role = role
         self.avatar = avatar
         self.bio = bio
+
+class Conversation(DBObject):
+
+    def __init__(
+            self,
+            title='',
+            user_ids=[],
+            ver=0,
+            *args,
+            **kwargs
+            ):
+        DBObject.__init__(self, *args, **kwargs)
+        self.title = title
+        self.user_ids = user_ids
+        self.ver = ver
+
+class Message(DBObject):
+
+    def __init__(
+            self,
+            conversation_id=None,
+            body='',
+            sender_id=None,
+            *args,
+            **kwargs
+            ):
+        DBObject.__init__(self, *args, **kwargs)
+        self.conversation_id = conversation_id
+        self.sender_id = sender_id
+        self.body = body

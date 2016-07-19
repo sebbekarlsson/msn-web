@@ -1,0 +1,11 @@
+{% set current_user = get_current_user() %}
+
+{% for msg in messages %}
+<article class='chat-msg'  {% if current_user._id == msg.user._id %} style='float: right;' {% else %} style='float: left;' {% endif %}>
+        <h4>{{ msg.user.first_name }} {{ msg.user.last_name }} says:</h4>
+        <ul>
+            <li>{{ msg.body }}</li>
+        </ul>
+</article>
+<div style='clear: both;'></div>
+{% endfor %}
