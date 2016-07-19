@@ -5,6 +5,8 @@ from msnweb.views.logout import bp as logout_bp
 from msnweb.views.conversation import bp as conversation_bp
 from msnweb.views.api import bp as api_bp
 from msnweb.MSN import MSN
+from msnweb.helpers import decorate_message
+from msnweb.helpers import strip_bad_tags
 
 
 app = Flask(__name__)
@@ -18,3 +20,5 @@ app.register_blueprint(conversation_bp)
 app.register_blueprint(api_bp)
 
 app.jinja_env.globals.update(get_current_user=MSN.get_current_user)
+app.jinja_env.globals.update(decorate_message=decorate_message)
+app.jinja_env.globals.update(strip_bad_tags=strip_bad_tags)
