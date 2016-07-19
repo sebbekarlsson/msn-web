@@ -1,3 +1,10 @@
+/**
+ * Get the version of a conversation
+ *
+ * @param conversation_id Identity of conversation
+ *
+ * @return Int
+ */
 function get_conversation_version(conversation_id) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/conversation/' + conversation_id + '/version', false);
@@ -5,13 +12,18 @@ function get_conversation_version(conversation_id) {
     return JSON.parse(xhr.responseText).version;
 }
 
+/**
+ * Update messages / a conversation.
+ *
+ * @param conversation_id Identity of conversation
+ * @param dom The chat DOM
+ */
 function update_messages(conversation_id, dom) {
     if (!dom.hasAttribute('version')) {
         dom.setAttribute('version', '-1');
     }
 
     var current_version = get_conversation_version(conversation_id);
-
     if (current_version != parseInt(dom.getAttribute('version'))) {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
@@ -27,6 +39,12 @@ function update_messages(conversation_id, dom) {
     }
 }
 
+/**
+ * Send a message to a conversation.
+ *
+ * @param conversation_id Identity of conversation
+ * @param body Message body
+ */
 function send_message(conversation_id, body) {
     var http = new XMLHttpRequest();
     var url = "/api/conversation/" + conversation_id + "/send";
