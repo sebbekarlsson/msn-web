@@ -33,6 +33,13 @@ def new(id):
             }
                     )
 
+    if existing_convo is None:
+        existing_convo = db.collections.find_one({
+            'structure': '#Conversation',
+            'user_ids' : [id, session['user_id']]
+            }
+                    )
+
     if existing_convo is not None:
         return redirect ('/conversation/{}'.format(str(existing_convo['_id'])))
 
