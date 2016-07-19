@@ -1,5 +1,13 @@
 {% extends 'layout.html' %}
 
+{% block head %}
+    {{ super() }}
+    
+    <script
+    type='text/javascript'
+    src='{{ url_for("static", filename="js/conversation.js") }}'></script>
+{% endblock %}
+
 
 {% block content %}
     <div class='view' id='chat-view'>
@@ -18,64 +26,17 @@
             <textarea id='send-body' class='chat-input-part'></textarea>
             <input id='send' type='submit' name='send' value='Send'>
         </div>
-        <script>
-
-
-
-var version = 'asdfasdf';
-
-var send_btn = document.getElementById('send');
-
-send_btn.addEventListener('click', function() {
-    var http = new XMLHttpRequest();
-    var url = "/api/conversation/{{ conversation._id }}/send";
-    var body = document.getElementById('send-body').value;
-    var params = "body="+body;
-    http.open("POST", url, true);
-
-    //Send the proper header information along with the request
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-    http.onreadystatechange = function() {//Call a function when the state changes.
-        if(http.readyState == 4 && http.status == 200) {
-            document.getElementById('send-body').value = '';
-        }
-    }
-    http.send(params);
-});
-
-
-function update_messages() {
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/api/conversation/{{ conversation._id }}/version', false);
-    xhr.send(null);
-    var checked_version = JSON.parse(xhr.responseText).version;
-
-
-    if (checked_version != version) {
-
-
-        var xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
-                document.getElementById('chat-text').innerHTML = xhr.responseText;
-                var objDiv = document.getElementById("chat-text");
-                objDiv.scrollTop = objDiv.scrollHeight+1;
-            }
-        }
-        xhr.open('GET', '/api/conversation/{{ conversation._id }}', true);
-        xhr.send(null);
-
-        version = checked_version;
-        has_been_updated = true;
-    }
-}
-
-setInterval(function() {
-    update_messages();
-}, 60);
-        </script>
     </div>
+    <script>        
+
+        document.getElementById('send').addEventListener('click', function () {
+            var body_dom = document.getElementById('send-body');
+            send_message("{{ conversation._id }}", body_dom.value);
+            body_dom.value = '';
+        });
+        
+        setInterval(function(){
+            update_messages("{{ conversation._id }}", document.getElementById('chat-text'));
+        }, 60);
+    </script>
 {% endblock %}
