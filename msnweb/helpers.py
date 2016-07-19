@@ -26,7 +26,8 @@ def strip_bad_tags(str):
     str = str.\
             replace('<script>', '<pre>').\
             replace('</script>', '</pre>').\
-            replace('<script', '<pre')
+            replace('<script', '<pre').\
+            replace("\n", '<br/>')
 
     if str.count('<pre') > 0 and str.count('</pre') == 0:
         str += '</pre>'
