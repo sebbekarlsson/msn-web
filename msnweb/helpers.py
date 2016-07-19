@@ -12,12 +12,11 @@ def login_required(f):
 
 def decorate_message(str):
     new_str = ''
-    words = str.split(' ')
 
+    words = str.split(' ')
     for word in words:
         if word.startswith('http'):
-            word = '<a href={url}>{url}</a>'.format(url=word)
-
+            word = '<a href="{url}">{url}</a>'.format(url=word)
         new_str += word + ' '
 
     line_parts = new_str.split("\n")
@@ -25,6 +24,17 @@ def decorate_message(str):
     for part in line_parts:
         part = "<li>" + part + "</li>"
         new_str += part
+
+    emo_map = [
+                {'text': ':)', 'src': '/static/image/emo_smile.png'},
+                {'text': ':D', 'src': '/static/image/emo_happy.png'},
+                {'text': ':P', 'src': '/static/image/emo_tounge.png'},
+                {'text': 'B)', 'src': '/static/image/emo_cool.png'}
+            ]
+    
+    for item in emo_map:
+        new_str = new_str.replace(item['text'],
+                '<img class="emo" src="{}">'.format(item['src']))
 
     return new_str
 
