@@ -4,7 +4,7 @@
 <article class='chat-msg'  {% if current_user._id == msg.user._id %} style='float: right;' {% else %} style='float: left;' {% endif %}>
         <h4>{{ msg.user.first_name }} {{ msg.user.last_name }} says:</h4>
         <ul>
-            <li>{{ decorate_message(strip_bad_tags(msg.body)) | safe }}</li>
+            {{ decorate_message(strip_bad_tags(msg.body)) | safe }}
         </ul>
 </article>
 {% endfor %}

@@ -15,7 +15,9 @@
   font-family: 'Source Sans Pro', sans-serif; }
 
 html {
-  background-image: url("/static/image/wxp.jpg"); }
+  background-image: url("/static/image/wxp.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .content {
   width: 400px;

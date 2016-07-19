@@ -20,14 +20,19 @@ def decorate_message(str):
 
         new_str += word + ' '
 
+    line_parts = new_str.split("\n")
+    new_str = ''
+    for part in line_parts:
+        part = "<li>" + part + "</li>"
+        new_str += part
+
     return new_str
 
 def strip_bad_tags(str):
     str = str.\
             replace('<script>', '<pre>').\
             replace('</script>', '</pre>').\
-            replace('<script', '<pre').\
-            replace("\n", '<br/>')
+            replace('<script', '<pre')
 
     if str.count('<pre') > 0 and str.count('</pre') == 0:
         str += '</pre>'
